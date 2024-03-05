@@ -7,7 +7,7 @@ const Registro = ref(false)
 const nome = ref ('')
 const cpf = ref  ('')
 const idade = ref ('') 
-
+const
 
 
 </script>
