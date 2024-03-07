@@ -10,10 +10,10 @@ const email = ref ('')
 const senha = ref ('')
 const confirma = ref ('')
 const cpf = ref  ('')
+const linguagens = ref ('')
 const idade = ref ('') 
 const morador = ref ('')
 const biografia = ref ('')
-
 
 
 </script>
@@ -62,6 +62,17 @@ const biografia = ref ('')
       <option value="SE">Sergipe</option>
       <option value="TO">Tocantins</option>
       <option value="DF">Distrito Federal</option>
+    </select>
+    <select v-model="linguagens">
+    <option value="JS">Javascript</option>
+    <option value="VUE">VUEJS</option>
+    <option value="HTML">HTML4</option>
+    <option value="C++">C++</option>
+    <option value="C#">C#</option>
+    <option value="CSS">CSS</option>
+    <option value="PHP">PHP</option>
+    <option value="Python">Python</option>
+    <option value="Django">Django</option>
     </select>
     <hr>
     <p>Fale um pouco sobre voce</p>
