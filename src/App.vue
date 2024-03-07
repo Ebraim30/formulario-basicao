@@ -14,6 +14,7 @@ const linguagens = ref ('')
 const idade = ref ('') 
 const morador = ref ('')
 const biografia = ref ('')
+const cota = ref ('')
 
 
 </script>
@@ -80,8 +81,14 @@ const biografia = ref ('')
     <p>Fale um pouco sobre voce</p>
     <textarea v-model="biografia" cols="30" rows="10"></textarea>
     <hr>
+    <p>Escolha sua cor para a cota</p>
+    <Select v-model="cota">
+    <option value="BL">Black</option>
+    <option value="WH">White</option>
+    <option value="BW">Brown</option>
+  </Select>
+  <hr>
     <button @click="Reiniciado">Reiniciar</button>
-
 
   <div class="salvas">
     <button  @click="$event => registrar = !registrar"></button>
@@ -120,6 +127,10 @@ const biografia = ref ('')
     <hr>
     <div>
       Linguagem: {{ linguagens }}
+    </div>
+    <hr>
+    <div>
+      Cor: {{ cota }}
     </div>
     </div>
     </div>
