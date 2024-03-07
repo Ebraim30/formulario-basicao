@@ -63,6 +63,8 @@ const biografia = ref ('')
       <option value="TO">Tocantins</option>
       <option value="DF">Distrito Federal</option>
     </select>
+    <hr>
+    <p>Escolha uma Linguagem</p>
     <select v-model="linguagens">
     <option value="JS">Javascript</option>
     <option value="VUE">VUEJS</option>
@@ -114,6 +116,10 @@ const biografia = ref ('')
     <hr>
     <div>
       Biografia: {{ biografia }}
+    </div>
+    <hr>
+    <div>
+      Linguagem: {{ linguagens }}
     </div>
     </div>
     </div>
