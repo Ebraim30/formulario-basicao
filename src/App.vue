@@ -1,12 +1,19 @@
 <script setup>
 import { ref } from 'vue';
 
+const registrar = ref(false)
+const Reiniciado = ref ()
 
-const Registro = ref(false)
 
 const nome = ref ('')
+const email = ref ('')
+const senha = ref ('')
+const confirma = ref ('')
 const cpf = ref  ('')
 const idade = ref ('') 
+const morador = ref ('')
+const biografia = ref ('')
+
 
 
 </script>
@@ -14,21 +21,89 @@ const idade = ref ('')
 <template>
   <div class="formulario">
     <h1> Informe essas informacoes </h1>
-    <p>Informe seu nome: {{ nome }} <input type="string" v-model="nome" size="20" maxlength="20"></p>
-    <p>Informe seu cpf: {{ cpf }} <input type="password" :type="Number" v-model="cpf" size="20" maxlength="11"></p>
-    <p>Informe sua idade: {{ idade }} <input type="number" v-model="idade" size="20"></p>
-    <p>concorde com os termos para prosseguir <input type="checkbox" v-model="aceitaTermos" /></p>
-    
+    <p>Informe seu nome: </p>
+    <input type="text" v-model="nome" size="20" maxlength="20" placeholder="Digite seu nome">
+    <p>Informe seu email:</p>
+    <input type="email" v-model="email" size="20" maxlength="30" placeholder="Digite seu email">
+    <p>Informe sua senha:</p>
+    <input type="password" v-model="senha" size="20" maxlength="20" placeholder="Digite sua senha:">
+    <p>Confirme sua Senha</p>
+    <input type="password" v-model="confirma" size="20" maxlength="20" placeholder="Confirme sua senha">
+    <p>Informe seu cpf: </p>
+    <input type="password" :type="Number" v-model="cpf" size="20" maxlength="11" placeholder="Digite seu CPF">
+    <p>Informe sua idade: </p>
+    <input type="number" v-model="idade" size="20" placeholder="Digite sua idade">
+    <p>Informe seu Estado</p>
+    <select v-model="morador">
+      <option value="AC">Acre</option>
+      <option value="AL">Alagoas</option>
+      <option value="AP">Amapa</option>
+      <option value="AM">Amazonas</option>
+      <option value="BA">Bahia</option>
+      <option value="CE">Ceara</option>
+      <option value="ES">Espirito Santo</option>
+      <option value="GO">Goias</option>
+      <option value="MA">Maranhao</option>
+      <option value="MT">Mato Grosso</option>
+      <option value="MS">Mato Grosso do Sul</option>
+      <option value="MG">Minas Gerais</option>
+      <option value="PA">Para</option>
+      <option value="PB">Paraiba</option>
+      <option value="PR">Parana</option>
+      <option value="PE">Pernambuco</option>
+      <option value="PI">Piaui</option>
+      <option value="RJ">Rio de Janeiro</option>
+      <option value="RN">Rio Grande do Norte</option>
+      <option value="RS">Rio Grande do Sul</option>
+      <option value="RO">Rondonia</option>
+      <option value="RR">Roraima</option>
+      <option value="SC">Santa Catarina</option>
+      <option value="SP">Sao Paulo</option>
+      <option value="SE">Sergipe</option>
+      <option value="TO">Tocantins</option>
+      <option value="DF">Distrito Federal</option>
+    </select>
     <hr>
+    <p>Fale um pouco sobre voce</p>
+    <textarea v-model="biografia" cols="30" rows="10"></textarea>
+    <hr>
+    <button @click="Reiniciado">Reiniciar</button>
+
 
   <div class="salvas">
-    <button @click="$event => !Registro"></button>
-    <div>
+    <button  @click="$event => registrar = !registrar"></button>
+    <div v-if="registrar">
+      <div>
       Nome: {{ nome }}
+    </div>
       <hr>
+    <div>
+      Email: {{ email }}
+    </div>
+    <hr>
+    <div>
+      Senha: {{ senha }}
+    </div>
+    <hr>
+    <div>
+      Senha: {{ confirma }}
+    </div>
+    <hr>
+      <div>
       CPF: {{ cpf }}
+    </div>
       <hr>
+      <div>
       Idade: {{ idade }}
+    </div>
+    <hr>
+    <div>
+      Estado: {{ morador }}
+    </div>
+    <hr>
+    <div>
+      Biografia: {{ biografia }}
+    </div>
     </div>
     </div>
   </div>
@@ -37,15 +112,24 @@ const idade = ref ('')
 
 <style scoped>
 .formulario {
-  background-color: rgb(162, 0, 255);
-  padding: 20px 30px;
-  color: rgb(183, 210, 219);
-  border-radius: 10px;
+  border: 5px solid grenn;
+  border-radius: 50px;
+  text-align: center;
+  padding: 25px;
+  background-color: blue;
+  margin: 0px auto;
 }
+.salvas {
+  border-radius: 40px;
+  text-align: center;
+  padding: 30px;
+  color: rgb(255, 255, 255);
+}
+
 
 h1 {
   color: white;
-  font-weight: bold;
-  font-size: 1.5em;
+  font-weight: bold 10px;
+  font-size: 30px;
 }
 </style>
