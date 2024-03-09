@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 
 const registrar = ref(false)
-const Reiniciado = ref ()
+
 
 
 const nome = ref ('')
@@ -80,15 +80,7 @@ const cota = ref ('')
     <hr>
     <p>Fale um pouco sobre voce</p>
     <textarea v-model="biografia" cols="30" rows="10"></textarea>
-    <hr>
-    <p>Escolha sua cor para a cota</p>
-    <Select v-model="cota">
-    <option value="BL">Black</option>
-    <option value="WH">White</option>
-    <option value="BW">Brown</option>
-  </Select>
-  <hr>
-    <button @click="Reiniciado">Reiniciar</button>
+
 
   <div class="salvas">
     <button  @click="$event => registrar = !registrar"></button>
@@ -128,10 +120,6 @@ const cota = ref ('')
     <div>
       Linguagem: {{ linguagens }}
     </div>
-    <hr>
-    <div>
-      Cor: {{ cota }}
-    </div>
     </div>
     </div>
   </div>
@@ -140,12 +128,13 @@ const cota = ref ('')
 
 <style scoped>
 .formulario {
-  border: 5px solid grenn;
+  border: 5px solid;
   border-radius: 50px;
   text-align: center;
   padding: 25px;
   background-color: blue;
   margin: 0px auto;
+  border-color: blueviolet;
 }
 .salvas {
   border-radius: 40px;
