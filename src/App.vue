@@ -13,8 +13,8 @@ const cpf = ref  ('')
 const linguagens = ref ('')
 const idade = ref ('') 
 const morador = ref ('')
+const data = ref ('')
 const biografia = ref ('')
-const cota = ref ('')
 
 
 </script>
@@ -34,6 +34,8 @@ const cota = ref ('')
     <input type="password" :type="Number" v-model="cpf" size="20" maxlength="11" placeholder="Digite seu CPF">
     <p>Informe sua idade: </p>
     <input type="number" v-model="idade" size="20" placeholder="Digite sua idade">
+    <p>Informe a Data</p>
+    <input type="date" v-model="data" placeholder="Digite a Data">
     <p>Informe seu Estado</p>
     <select v-model="morador">
       <option value="AC">Acre</option>
@@ -83,7 +85,7 @@ const cota = ref ('')
 
 
   <div class="salvas">
-    <button  @click="$event => registrar = !registrar"></button>
+    <button  @click="$event => registrar = !registrar">Registrar</button>
     <div v-if="registrar">
       <div>
       Nome: {{ nome }}
@@ -107,6 +109,10 @@ const cota = ref ('')
       <hr>
       <div>
       Idade: {{ idade }}
+    </div>
+    <hr>
+    <div>
+      Data: {{ data }}
     </div>
     <hr>
     <div>
