@@ -9,6 +9,8 @@ const nome = ref ('')
 const email = ref ('')
 const senha = ref ('')
 const confirma = ref ('')
+const profissao = ref ('')
+const salario = ref ('')
 const cpf = ref  ('')
 const linguagens = ref ('')
 const idade = ref ('') 
@@ -30,6 +32,10 @@ const biografia = ref ('')
     <input type="password" v-model="senha" size="20" maxlength="20" placeholder="Digite sua senha:">
     <p>Confirme sua Senha</p>
     <input type="password" v-model="confirma" size="20" maxlength="20" placeholder="Confirme sua senha">
+    <p>Informe sua profissao</p>
+    <input type="text" v-model="profissao" size="20" maxlength="30" placeholder="Digite sua Profissão">
+    <p>Informe seu salario</p>
+    <input type="password" :type="Number" v-model="salario" size="20" maxlength="30" placeholder="Digite seu salario">
     <p>Informe seu cpf: </p>
     <input type="password" :type="Number" v-model="cpf" size="20" maxlength="11" placeholder="Digite seu CPF">
     <p>Informe sua idade: </p>
@@ -101,6 +107,14 @@ const biografia = ref ('')
     <hr>
     <div>
       Senha: {{ confirma }}
+    </div>
+    <hr>
+    <div>
+      Profissao: {{ profissao }}
+    </div>
+    <hr>
+    <div>
+      Salario: {{ salario }}
     </div>
     <hr>
       <div>
