@@ -91,7 +91,19 @@ const biografia = ref ('')
 
 
   <div class="salvas">
-    <button  @click="$event => registrar = !registrar">Registrar</button>
+    <button  @click="$event => registrar = !registrar">Registrar</button> <button @click="deletar">deletar
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </button>
     <div v-if="registrar">
       <div>
       Nome: {{ nome }}
