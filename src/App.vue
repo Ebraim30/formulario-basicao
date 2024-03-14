@@ -8,16 +8,21 @@ const registrar = ref(false)
 const nome = ref ('')
 const email = ref ('')
 const senha = ref ('')
-const confirma = ref ('')
+const confirmacao = ref ('')
 const profissao = ref ('')
 const salario = ref ('')
 const cpf = ref  ('')
 const linguagens = ref ('')
 const idade = ref ('') 
-const morador = ref ('')
+const Endereco = ref ('')
+const cidade = ref ('')
+const saude = ref ('')
 const data = ref ('')
 const biografia = ref ('')
 
+function deletar  () {
+  nome.value.splice 
+}
 
 </script>
 
@@ -31,19 +36,23 @@ const biografia = ref ('')
     <p>Informe sua senha:</p>
     <input type="password" v-model="senha" size="20" maxlength="20" placeholder="Digite sua senha:">
     <p>Confirme sua Senha</p>
-    <input type="password" v-model="confirma" size="20" maxlength="20" placeholder="Confirme sua senha">
+    <input type="password" v-model="confirmacao" size="20" maxlength="20" placeholder="Confirme sua senha">
     <p>Informe sua profissao</p>
     <input type="text" v-model="profissao" size="20" maxlength="30" placeholder="Digite sua Profissão">
     <p>Informe seu salario</p>
-    <input type="password" :type="Number" v-model="salario" size="20" maxlength="30" placeholder="Digite seu salario">
+    <input type="password" v-model="salario" size="20" maxlength="30" placeholder="Digite seu salario">
+    <p>Informe sua saude</p>
+    <input	type="string" v-model="saude" size="20" maxlength="100" placeholder="Digite seu problema de saude">
     <p>Informe seu cpf: </p>
-    <input type="password" :type="Number" v-model="cpf" size="20" maxlength="11" placeholder="Digite seu CPF">
+    <input type="password" v-model="cpf" size="20" maxlength="11" placeholder="Digite seu CPF">
     <p>Informe sua idade: </p>
     <input type="number" v-model="idade" size="20" placeholder="Digite sua idade">
     <p>Informe a Data</p>
     <input type="date" v-model="data" placeholder="Digite a Data">
+    <p>Informe seu Endereco</p>
+    <input type="string" v-model="Endereco" size="20" maxlength="55" placeholder="Digite sua Rua e Nº">
     <p>Informe seu Estado</p>
-    <select v-model="morador">
+    <select v-model="cidade">
       <option value="AC">Acre</option>
       <option value="AL">Alagoas</option>
       <option value="AP">Amapa</option>
@@ -91,19 +100,7 @@ const biografia = ref ('')
 
 
   <div class="salvas">
-    <button  @click="$event => registrar = !registrar">Registrar</button> <button @click="deletar">deletar
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </button>
+    <button  @click="$event => registrar = !registrar">Registrar</button> <button @click="deletar">deletar</button>
     <div v-if="registrar">
       <div>
       Nome: {{ nome }}
@@ -118,7 +115,7 @@ const biografia = ref ('')
     </div>
     <hr>
     <div>
-      Senha: {{ confirma }}
+      Senha: {{ confirmacao }}
     </div>
     <hr>
     <div>
@@ -127,6 +124,10 @@ const biografia = ref ('')
     <hr>
     <div>
       Salario: {{ salario }}
+    </div>
+    <hr>
+    <div>
+      Saude: {{ saude }}
     </div>
     <hr>
       <div>
@@ -142,7 +143,11 @@ const biografia = ref ('')
     </div>
     <hr>
     <div>
-      Estado: {{ morador }}
+      Endereco: {{ Endereco }}
+    </div>
+    <hr>
+    <div>
+      Estado: {{ cidade }}
     </div>
     <hr>
     <div>
