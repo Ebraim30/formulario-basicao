@@ -53,6 +53,7 @@ function edit (editar) {
   registrar.value = (false)
 }
 
+
 </script>
 
 <template>
@@ -226,7 +227,7 @@ h1 {
     background-color: #8900fa;
     border-radius: 15px;
     box-shadow: 0 2px 4px rgb(255, 0, 0);
-    margin-right: 20px;
+    margin-right: 0px;
     margin-bottom: 20px;
   }
 
