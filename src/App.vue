@@ -4,7 +4,7 @@ import { ref } from 'vue';
 const registrar = ref(false)
 
 
-
+ 
 const nome = ref ('')
 const email = ref ('')
 const senha = ref ('')
@@ -16,12 +16,23 @@ const linguagens = ref ('')
 const idade = ref ('') 
 const Endereco = ref ('')
 const cidade = ref ('')
-const saude = ref ('')
 const data = ref ('')
 const biografia = ref ('')
 
-function deletar  () {
-  nome.value.splice 
+function deletar  (apagado) {
+  nome.value = ('')
+  email.value = ('')
+  senha.value = ('')
+  confirmacao.value = ('')
+  profissao.value = ('')
+  salario.value = ('')
+  cpf.value = ('')
+  linguagens.value = ('')
+  idade.value = ('')
+  Endereco.value = ('')
+  cidade.value = ('')
+  data.value = ('')
+  biografia.value = ('')
 }
 
 </script>
@@ -41,8 +52,6 @@ function deletar  () {
     <input type="text" v-model="profissao" size="20" maxlength="30" placeholder="Digite sua Profissão">
     <p>Informe seu salario</p>
     <input type="password" v-model="salario" size="20" maxlength="30" placeholder="Digite seu salario">
-    <p>Informe sua saude</p>
-    <input	type="string" v-model="saude" size="20" maxlength="100" placeholder="Digite seu problema de saude">
     <p>Informe seu cpf: </p>
     <input type="password" v-model="cpf" size="20" maxlength="11" placeholder="Digite seu CPF">
     <p>Informe sua idade: </p>
@@ -100,7 +109,7 @@ function deletar  () {
 
 
   <div class="salvas">
-    <button  @click="$event => registrar = !registrar">Registrar</button> <button @click="deletar">deletar</button>
+    <button  @click="$event => registrar = !registrar">Registrar</button> <button @click="deletar(apagado)">Deletar</button>
     <div v-if="registrar">
       <div>
       Nome: {{ nome }}
@@ -124,10 +133,6 @@ function deletar  () {
     <hr>
     <div>
       Salario: {{ salario }}
-    </div>
-    <hr>
-    <div>
-      Saude: {{ saude }}
     </div>
     <hr>
       <div>
