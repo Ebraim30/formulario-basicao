@@ -19,7 +19,7 @@ const cidade = ref ('')
 const data = ref ('')
 const biografia = ref ('')
 
-function deletar  (apagado) {
+function deletar (apagado) {
   nome.value = ('')
   email.value = ('')
   senha.value = ('')
@@ -33,6 +33,24 @@ function deletar  (apagado) {
   cidade.value = ('')
   data.value = ('')
   biografia.value = ('')
+  registrar.value = (false)
+}
+
+function edit (editar) {
+  nome.value = nome.value
+  email.value = email.value
+  senha.value = senha.value
+  confirmacao.value = confirmacao.value
+  profissao.value = profissao.value
+  salario.value = salario.value
+  cpf.value = cpf.value
+  linguagens.value = linguagens.value
+  idade.value = idade.value
+  Endereco.value = Endereco.value
+  cidade.value = cidade.value
+  data.value = data.value  
+  biografia.value = biografia.value
+  registrar.value = (false)
 }
 
 </script>
@@ -108,9 +126,10 @@ function deletar  (apagado) {
     <textarea v-model="biografia" cols="30" rows="10"></textarea>
 
 
-  <div class="salvas">
-    <button  @click="$event => registrar = !registrar">Registrar</button> <button @click="deletar(apagado)">Deletar</button>
-    <div v-if="registrar">
+  <div class="user-cards">
+    <button  @click="$event => registrar = !registrar">Registrar</button> 
+    <div class="card">Dados Salvos
+    <div v-if="registrar" class="card-content">
       <div>
       Nome: {{ nome }}
     </div>
@@ -162,6 +181,9 @@ function deletar  (apagado) {
     <div>
       Linguagem: {{ linguagens }}
     </div>
+    <button @click="deletar(apagado)">Deletar</button>
+    <button @click="edit(editar)">Editar</button>
+  </div>
     </div>
     </div>
   </div>
@@ -191,4 +213,50 @@ h1 {
   font-weight: bold 10px;
   font-size: 30px;
 }
+
+.user-cards {
+    display: flow-root;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+
+  .card {
+    flex: 0 0 300px;
+    background-color: #8900fa;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgb(255, 0, 0);
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+  .card-content {
+    padding: 30px;
+  }
+
+  .card button {
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 3px;
+    border: none;
+    color: #4b398b;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .card button.edit {
+    background-color: #ffeb3b; 
+  }
+
+  .card button.edit:hover {
+    background-color: #fdd835; 
+  }
+
+  .card button.delete {
+    background-color: #f44336; 
+  }
+
+  .card button.delete:hover {
+    background-color: #e53935; 
+  }
 </style>
