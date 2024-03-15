@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { normalizeStyle, ref } from 'vue';
 
 const registrar = ref(false)
 
@@ -19,7 +19,7 @@ const cidade = ref ('')
 const data = ref ('')
 const biografia = ref ('')
 
-function deletar (apagado) {
+function deletar(apagado) {
   nome.value = ('')
   email.value = ('')
   senha.value = ('')
@@ -36,7 +36,7 @@ function deletar (apagado) {
   registrar.value = (false)
 }
 
-function edit (editar) {
+function edit(editar) {
   nome.value = nome.value
   email.value = email.value
   senha.value = senha.value
@@ -52,7 +52,6 @@ function edit (editar) {
   biografia.value = biografia.value
   registrar.value = (false)
 }
-
 
 </script>
 
@@ -199,13 +198,14 @@ function edit (editar) {
   padding: 25px;
   background-color: blue;
   margin: 0px auto;
-  border-color: blueviolet;
+  border-color: blueviolet; 
 }
 .salvas {
   border-radius: 40px;
   text-align: center;
   padding: 30px;
   color: rgb(255, 255, 255);
+  position: fixed;
 }
 
 
