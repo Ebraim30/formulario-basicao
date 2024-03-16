@@ -122,7 +122,7 @@ function edit(editar) {
     <option value="Django">Django</option>
     </select>
     <hr>
-    <p>Fale um pouco sobre voce</p>
+    <p>Biografia</p>
     <textarea v-model="biografia" cols="30" rows="10"></textarea>
 
 
