@@ -1,8 +1,12 @@
 <script setup>
 import { normalizeStyle, ref } from 'vue';
+import { reactive } from 'vue';
 
 const registrar = ref(false)
 
+const user = reactive({
+  avatar: null,
+});
 
  
 const nome = ref ('')
@@ -53,11 +57,24 @@ function edit(editar) {
   registrar.value = (false)
 }
 
+
+
+function handleFileUpload(e) {
+  const target = e.target;
+  if (target && target.files) {
+    const file = target.files[0];
+    user.avatar = URL.createObjectURL(file);
+  }
+}
 </script>
 
 <template>
   <div class="formulario">
     <h1> Informe essas informacoes </h1>
+    
+    <input type="file" id="avatarField" @change="handleFileUpload($event)" />
+    <img v-if="user.avatar" :src="user.avatar" />
+    
     <p>Informe seu nome: </p>
     <input type="text" v-model="nome" size="20" maxlength="20" placeholder="Digite seu nome">
     <p>Informe seu email:</p>
