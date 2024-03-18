@@ -148,6 +148,9 @@ function handleFileUpload(e) {
     <div class="card">Dados Salvos
     <div v-if="registrar" class="card-content">
       <div>
+       Foto: <img :src="user.avatar" />
+      </div>
+      <div>
       Nome: {{ nome }}
     </div>
       <hr>
@@ -209,13 +212,13 @@ function handleFileUpload(e) {
 
 <style scoped>
 .formulario {
-  border: 5px solid;
+  box-shadow: 2px 6px 6px rgb(255, 0, 0);
   border-radius: 50px;
   text-align: center;
   padding: 25px;
-  background-color: blue;
+  background-color: rgb(167, 167, 179);
   margin: 0px auto;
-  border-color: blueviolet; 
+ 
 }
 .salvas {
   border-radius: 40px;
@@ -241,7 +244,7 @@ h1 {
 
   .card {
     flex: 0 0 300px;
-    background-color: #8900fa;
+    background-color: #918989;
     border-radius: 15px;
     box-shadow: 0 2px 4px rgb(255, 0, 0);
     margin-right: 0px;
@@ -257,24 +260,12 @@ h1 {
     margin-top: 10px;
     border-radius: 3px;
     border: none;
-    color: #4b398b;
+    color: #bd1313;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
 
-  .card button.edit {
-    background-color: #ffeb3b; 
-  }
+ 
 
-  .card button.edit:hover {
-    background-color: #fdd835; 
-  }
 
-  .card button.delete {
-    background-color: #f44336; 
-  }
-
-  .card button.delete:hover {
-    background-color: #e53935; 
-  }
 </style>
