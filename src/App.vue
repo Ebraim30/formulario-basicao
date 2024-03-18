@@ -216,7 +216,7 @@ function handleFileUpload(e) {
   border-radius: 50px;
   text-align: center;
   padding: 25px;
-  background-color: rgb(167, 167, 179);
+  background-color: rgb(187, 178, 178);
   margin: 0px auto;
  
 }
@@ -224,13 +224,13 @@ function handleFileUpload(e) {
   border-radius: 40px;
   text-align: center;
   padding: 30px;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   position: fixed;
 }
 
 
 h1 {
-  color: white;
+  color: rgb(231, 16, 16);
   font-weight: bold 10px;
   font-size: 30px;
 }
