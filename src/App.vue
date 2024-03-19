@@ -65,6 +65,9 @@ if (nome.value == '' || nome.value == null) {
   icon: "error"
 });
     return
+  
+registrar.value = false
+
   }
   if (email.value == '' || email.value == null) {
     Swal.fire({
@@ -73,6 +76,8 @@ if (nome.value == '' || nome.value == null) {
   icon: "error"
 });
     return
+    registrar.value = false
+
   }
 
   if (senha.value == '' || senha.value == null) {
@@ -82,6 +87,8 @@ if (nome.value == '' || nome.value == null) {
   icon: "error"
 });
     return
+    registrar.value = false
+
   }
   if (confirmacao.value == '' || confirmacao.value == null) {
     Swal.fire({
@@ -90,6 +97,8 @@ if (nome.value == '' || nome.value == null) {
   icon: "error"
 });
     return
+    registrar.value = false
+
   }
   if (profissao.value == '' || profissao.value == null) {
     Swal.fire({
@@ -98,6 +107,8 @@ if (nome.value == '' || nome.value == null) {
   icon: "error"
 });
     return
+    registrar.value = false
+
   }
   if (salario.value == '' || salario.value == null) {
     Swal.fire({
@@ -105,8 +116,10 @@ if (nome.value == '' || nome.value == null) {
   text: "você esqueceu de algum campo!",
   icon: "error"
 });
-    return
-  }
+return
+registrar.value = false
+
+}
   if (cpf.value == '' || cpf.value == null) {
     Swal.fire({
   title: "Atenção",
@@ -114,6 +127,8 @@ if (nome.value == '' || nome.value == null) {
   icon: "error"
 });
     return
+    registrar.value = false
+
   }
   if (linguagens.value == '' || linguagens.value == null) {
     Swal.fire({
@@ -122,14 +137,18 @@ if (nome.value == '' || nome.value == null) {
   icon: "error"
 });
     return
+    registrar.value = false
+
   }
   if (idade.value == '' || idade.value == null) {
     Swal.fire({
   title: "Atenção",
-  text: "você esqueceu de algum campozão!!!",
+  text: "você esqueceu de algum campo!",
   icon: "error"
 });
     return
+    registrar.value = false
+
   }
   if (Endereco.value == '' || Endereco.value == null) {
     Swal.fire({
@@ -138,31 +157,45 @@ if (nome.value == '' || nome.value == null) {
   icon: "error"
 });
     return
+    registrar.value = false
+
   }
   if (cidade.value == '' || cidade.value == null) {
     Swal.fire({
   title: "Atenção",
-  text: "você esqueceu de algum campozão!!!",
+  text: "você esqueceu de algum campo!",
   icon: "error"
 });
     return
+    registrar.value = false
+
   }
   if (data.value == '' || data.value == null) {
     Swal.fire({
   title: "Atenção",
-  text: "você esqueceu de algum campozão!!!",
+  text: "você esqueceu de algum campo!",
   icon: "error"
 });
     return
+    registrar.value = false
+
   }
 
   if (biografia.value == '' || biografia.value == null) {
     Swal.fire({
   title: "Atenção",
-  text: "você esqueceu de algum campozão!!!",
+  text: "você esqueceu de algum campo!",
   icon: "error"
 });
     return
+    registrar.value = false
+
+  }
+
+
+  if(nome.value && email.value && senha.value
+   && confirmacao.value && profissao.value && salario.value && cpf.value && linguagens.value && idade.value && Endereco.value && cidade.value && data.value && biografia.value) {
+    registrar.value = true
   }
 }
 
@@ -174,11 +207,12 @@ function handleFileUpload(e) {
     user.avatar = URL.createObjectURL(file)
   }
 }
+
 </script>
 
 <template>
   <div class="formulario">
-    <h1>Informe essas informacoes</h1>
+    <h1>Informe seus dados</h1>
 
     <input type="file" id="avatarField" @change="handleFileUpload($event)" />
     <img v-if="user.avatar" :src="user.avatar" />
@@ -203,7 +237,7 @@ function handleFileUpload(e) {
       maxlength="20"
       placeholder="Confirme sua senha"
     />
-    <p>Informe sua profissao</p>
+    <p>Informe sua profissão</p>
     <input
       type="text"
       v-model="profissao"
@@ -281,6 +315,7 @@ function handleFileUpload(e) {
     <textarea v-model="biografia" cols="30" rows="10"></textarea>
 
     <div class="user-cards">
+       
       <button @click="save()">Registrar</button>
       <div class="card">
         Dados Salvos
@@ -324,7 +359,7 @@ function handleFileUpload(e) {
   box-shadow: 2px 6px 6px rgb(255, 0, 0);
   border-radius: 50px;
   text-align: center;
-  padding: 25px;
+  padding: 100px;
   background-color: rgb(187, 178, 178);
   margin: 0px auto;
 }
