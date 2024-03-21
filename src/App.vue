@@ -232,7 +232,7 @@ function handleFileUpload(e) {
     <p>Confirme sua Senha</p>
     <input
       type="password"
-      v-model="confirmacao"
+      v-model="confirmação"
       size="20"
       maxlength="20"
       placeholder="Confirme sua senha"
