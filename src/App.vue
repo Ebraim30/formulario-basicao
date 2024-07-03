@@ -57,146 +57,80 @@ function edit(editar) {
   registrar.value = false
 }
 
-function save(value) {
-if (nome.value == '' || nome.value == null) {
-    Swal.fire({
-  title: "Atenção",
-  text: "você esqueceu de algum campo!",
-  icon: "error"
-});
-    return
-  
-registrar.value = false
-
+function save() {
+  let error = false
+  const campos = []
+  if (nome.value == '' || nome.value == null) {
+    campos.push('nome ')
+    error = true
   }
   if (email.value == '' || email.value == null) {
-    Swal.fire({
-  title: "Atenção",
-  text: "você esqueceu de algum campo!",
-  icon: "error"
-});
-    return
-    registrar.value = false
-
+    campos.push('email ')
+    error = true
   }
 
   if (senha.value == '' || senha.value == null) {
-    Swal.fire({
-  title: "Atenção",
-  text: "você esqueceu de algum campo!",
-  icon: "error"
-});
-    return
-    registrar.value = false
+    campos.push('senha ')
+    error = true
+
 
   }
   if (confirmacao.value == '' || confirmacao.value == null) {
-    Swal.fire({
-  title: "Atenção",
-  text: "você esqueceu de algum campo!",
-  icon: "error"
-});
-    return
-    registrar.value = false
+    campos.push('confirmação ')
+    error = true
 
   }
   if (profissao.value == '' || profissao.value == null) {
-    Swal.fire({
-  title: "Atenção",
-  text: "você esqueceu de algum campo!",
-  icon: "error"
-});
-    return
-    registrar.value = false
+    campos.push('profissâo ')
+    error = true
 
   }
   if (salario.value == '' || salario.value == null) {
-    Swal.fire({
-  title: "Atenção",
-  text: "você esqueceu de algum campo!",
-  icon: "error"
-});
-return
-registrar.value = false
-
-}
+    campos.push('salario ')
+    error = true
+  }
   if (cpf.value == '' || cpf.value == null) {
-    Swal.fire({
-  title: "Atenção",
-  text: "você esqueceu de algum campo!",
-  icon: "error"
-});
-    return
-    registrar.value = false
-
+    campos.push('CPF ')
+    error = true
   }
   if (linguagens.value == '' || linguagens.value == null) {
-    Swal.fire({
-  title: "Atenção",
-  text: "você esqueceu de algum campo!",
-  icon: "error"
-});
-    return
-    registrar.value = false
+    campos.push ('Linguagens ')
+ error = true
 
-  }
-  if (idade.value == '' || idade.value == null) {
-    Swal.fire({
-  title: "Atenção",
-  text: "você esqueceu de algum campo!",
-  icon: "error"
-});
-    return
-    registrar.value = false
-
+   }
+   if (idade.value == '' || idade.value == null) {
+    campos.push ('Idade ')
+ error = true 
   }
   if (Endereco.value == '' || Endereco.value == null) {
-    Swal.fire({
-  title: "Atenção",
-  text: "você esqueceu de algum campo!",
-  icon: "error"
-});
-    return
-    registrar.value = false
-
+campos.push ('Endereço ')
+error = true
   }
-  if (cidade.value == '' || cidade.value == null) {
-    Swal.fire({
-  title: "Atenção",
-  text: "você esqueceu de algum campo!",
-  icon: "error"
-});
-    return
-    registrar.value = false
+   if (cidade.value == '' || cidade.value == null) {
+campos.push ('Cidade ')
+error = true
+   }
+   if (data.value == '' || data.value == null) {
+  campos.push ('Data ')
+error = true
+}
 
-  }
-  if (data.value == '' || data.value == null) {
-    Swal.fire({
-  title: "Atenção",
-  text: "você esqueceu de algum campo!",
-  icon: "error"
-});
-    return
-    registrar.value = false
-
-  }
-
-  if (biografia.value == '' || biografia.value == null) {
-    Swal.fire({
-  title: "Atenção",
-  text: "você esqueceu de algum campo!",
-  icon: "error"
-});
-    return
-    registrar.value = false
-
+   if (biografia.value == '' || biografia.value == null) {
+  campos.push ('biografia ')
+  error = true
   }
 
 
-  if(nome.value && email.value && senha.value
-   && confirmacao.value && profissao.value && salario.value && cpf.value && linguagens.value && idade.value && Endereco.value && cidade.value && data.value && biografia.value) {
+  if (!error) {
     registrar.value = true
+  } else {
+    Swal.fire({
+      title: "Atenção",
+      text: `Você esqueceu dos campos: ${campos}!`,
+      icon: "error"
+    });
   }
+
 }
 
 
@@ -222,37 +156,13 @@ function handleFileUpload(e) {
     <p>Informe seu email:</p>
     <input type="email" v-model="email" size="20" maxlength="30" placeholder="Digite seu email" />
     <p>Informe sua senha:</p>
-    <input
-      type="password"
-      v-model="senha"
-      size="20"
-      maxlength="20"
-      placeholder="Digite sua senha:"
-    />
+    <input type="password" v-model="senha" size="20" maxlength="20" placeholder="Digite sua senha:" />
     <p>Confirme sua Senha</p>
-    <input
-      type="password"
-      v-model="confirmação"
-      size="20"
-      maxlength="20"
-      placeholder="Confirme sua senha"
-    />
+    <input type="password" v-model="confirmacao" size="20" maxlength="20" placeholder="Confirme sua senha" />
     <p>Informe sua profissão</p>
-    <input
-      type="text"
-      v-model="profissao"
-      size="20"
-      maxlength="30"
-      placeholder="Digite sua Profissão"
-    />
+    <input type="text" v-model="profissao" size="20" maxlength="30" placeholder="Digite sua Profissão" />
     <p>Informe seu salario</p>
-    <input
-      type="password"
-      v-model="salario"
-      size="20"
-      maxlength="30"
-      placeholder="Digite seu salario"
-    />
+    <input type="password" v-model="salario" size="20" maxlength="30" placeholder="Digite seu salario" />
     <p>Informe seu cpf:</p>
     <input type="password" v-model="cpf" size="20" maxlength="11" placeholder="Digite seu CPF" />
     <p>Informe sua idade:</p>
@@ -260,13 +170,7 @@ function handleFileUpload(e) {
     <p>Informe a Data</p>
     <input type="date" v-model="data" placeholder="Digite a Data" />
     <p>Informe seu Endereco</p>
-    <input
-      type="string"
-      v-model="Endereco"
-      size="20"
-      maxlength="55"
-      placeholder="Digite sua Rua e Nº"
-    />
+    <input type="string" v-model="Endereco" size="20" maxlength="55" placeholder="Digite sua Rua e Nº" />
     <p>Informe seu Estado</p>
     <select v-model="cidade">
       <option value="AC">Acre</option>
@@ -315,13 +219,13 @@ function handleFileUpload(e) {
     <textarea v-model="biografia" cols="30" rows="10"></textarea>
 
     <div class="user-cards">
-       
+
       <button @click="save()">Registrar</button>
       <div class="card">
         Dados Salvos
         <div v-if="registrar" class="card-content">
           <div>Foto: <img :src="user.avatar" /></div>
-          <div>Nome: {{ nome.value }}</div>
+          <div>Nome: {{ nome }}</div>
           <hr />
           <div>Email: {{ email }}</div>
           <hr />
@@ -360,9 +264,11 @@ function handleFileUpload(e) {
   border-radius: 50px;
   text-align: center;
   padding: 100px;
-  background-color: rgb(187, 178, 178);
+  background-color: rgba(100, 88, 146, 0.514);
   margin: 0px auto;
+
 }
+
 .salvas {
   border-radius: 40px;
   text-align: center;
@@ -386,11 +292,12 @@ h1 {
 
 .card {
   flex: 0 0 300px;
-  background-color: #918989;
+  background-color: rgba(100, 88, 146, 0.514) ;
   border-radius: 15px;
   box-shadow: 0 2px 4px rgb(255, 0, 0);
   margin-right: 0px;
   margin-bottom: 20px;
+  
 }
 
 .card-content {
