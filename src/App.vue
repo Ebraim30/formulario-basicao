@@ -2,20 +2,24 @@
 import { normalizeStyle, ref } from 'vue'
 import { reactive } from 'vue'
 import Swal from 'sweetalert2'
-
+import NomeComp from './components/NomeComp.vue'
+import senhaComp from './components/senhaComp.vue'
+import confirmacaoComp from './components/confirmacaoComp.vue'
+import emailComp from './components/emailComp.vue'
+import profissaoComp from './components/profissaoComp.vue'
+import salarioComp from './components/salarioComp.vue'
+import cpfComp from './components/cpfComp.vue'
 const registrar = ref(false)
 
 const user = reactive({
   avatar: null
 })
 
-const nome = ref('')
-const email = ref('')
-const senha = ref('')
-const confirmacao = ref('')
-const profissao = ref('')
-const salario = ref('')
-const cpf = ref('')
+
+
+
+
+
 const linguagens = ref('')
 const idade = ref('')
 const Endereco = ref('')
@@ -60,10 +64,7 @@ function edit(editar) {
 function save() {
   let error = false
   const campos = []
-  if (nome.value == '' || nome.value == null) {
-    campos.push('nome ')
-    error = true
-  }
+
   if (email.value == '' || email.value == null) {
     campos.push('email ')
     error = true
@@ -151,20 +152,14 @@ function handleFileUpload(e) {
     <input type="file" id="avatarField" @change="handleFileUpload($event)" />
     <img v-if="user.avatar" :src="user.avatar" />
 
-    <p>Informe seu nome:</p>
-    <input type="text" v-model="nome" size="20" maxlength="20" placeholder="Digite seu nome" />
-    <p>Informe seu email:</p>
-    <input type="email" v-model="email" size="20" maxlength="30" placeholder="Digite seu email" />
-    <p>Informe sua senha:</p>
-    <input type="password" v-model="senha" size="20" maxlength="20" placeholder="Digite sua senha:" />
-    <p>Confirme sua Senha</p>
-    <input type="password" v-model="confirmacao" size="20" maxlength="20" placeholder="Confirme sua senha" />
-    <p>Informe sua profissão</p>
-    <input type="text" v-model="profissao" size="20" maxlength="30" placeholder="Digite sua Profissão" />
-    <p>Informe seu salario</p>
-    <input type="password" v-model="salario" size="20" maxlength="30" placeholder="Digite seu salario" />
-    <p>Informe seu cpf:</p>
-    <input type="password" v-model="cpf" size="20" maxlength="11" placeholder="Digite seu CPF" />
+    <NomeComp />
+    <senhaComp />
+    <confirmacaoComp />
+    <emailComp />
+    <profissaoComp />
+    <salarioComp />
+<cpfComp />
+
     <p>Informe sua idade:</p>
     <input type="number" v-model="idade" size="20" placeholder="Digite sua idade" />
     <p>Informe a Data</p>
@@ -225,20 +220,8 @@ function handleFileUpload(e) {
         Dados Salvos
         <div v-if="registrar" class="card-content">
           <div>Foto: <img :src="user.avatar" /></div>
-          <div>Nome: {{ nome }}</div>
-          <hr />
-          <div>Email: {{ email }}</div>
-          <hr />
-          <div>Senha: {{ senha }}</div>
-          <hr />
-          <div>Senha: {{ confirmacao }}</div>
-          <hr />
-          <div>Profissao: {{ profissao }}</div>
-          <hr />
-          <div>Salario: {{ salario }}</div>
-          <hr />
-          <div>CPF: {{ cpf }}</div>
-          <hr />
+        
+         
           <div>Idade: {{ idade }}</div>
           <hr />
           <div>Data: {{ data }}</div>
