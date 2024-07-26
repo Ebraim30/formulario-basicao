@@ -1,25 +1,22 @@
 <script setup>
-import { normalizeStyle, ref } from 'vue'
+import { ref } from 'vue'
 import { reactive } from 'vue'
 import Swal from 'sweetalert2'
-import NomeComp from './components/NomeComp.vue'
-import senhaComp from './components/senhaComp.vue'
-import confirmacaoComp from './components/confirmacaoComp.vue'
-import emailComp from './components/emailComp.vue'
-import profissaoComp from './components/profissaoComp.vue'
-import salarioComp from './components/salarioComp.vue'
-import cpfComp from './components/cpfComp.vue'
+
+
 const registrar = ref(false)
 
 const user = reactive({
   avatar: null
 })
 
-
-
-
-
-
+const nome = ref ('')
+const email = ref ('')
+const senha = ref ('')
+const confirmacao = ref ('')
+const profissao = ref ('')
+const salario = ref ('')
+const cpf = ref ('')
 const linguagens = ref('')
 const idade = ref('')
 const Endereco = ref('')
@@ -41,23 +38,6 @@ function deletar(apagado) {
   cidade.value = ''
   data.value = ''
   biografia.value = ''
-  registrar.value = false
-}
-
-function edit(editar) {
-  nome.value = nome.value
-  email.value = email.value
-  senha.value = senha.value
-  confirmacao.value = confirmacao.value
-  profissao.value = profissao.value
-  salario.value = salario.value
-  cpf.value = cpf.value
-  linguagens.value = linguagens.value
-  idade.value = idade.value
-  Endereco.value = Endereco.value
-  cidade.value = cidade.value
-  data.value = data.value
-  biografia.value = biografia.value
   registrar.value = false
 }
 
@@ -95,30 +75,30 @@ function save() {
     error = true
   }
   if (linguagens.value == '' || linguagens.value == null) {
-    campos.push ('Linguagens ')
- error = true
+    campos.push('Linguagens ')
+    error = true
 
-   }
-   if (idade.value == '' || idade.value == null) {
-    campos.push ('Idade ')
- error = true 
+  }
+  if (idade.value == '' || idade.value == null) {
+    campos.push('Idade ')
+    error = true
   }
   if (Endereco.value == '' || Endereco.value == null) {
-campos.push ('Endereço ')
-error = true
+    campos.push('Endereço ')
+    error = true
   }
-   if (cidade.value == '' || cidade.value == null) {
-campos.push ('Cidade ')
-error = true
-   }
-   if (data.value == '' || data.value == null) {
-  campos.push ('Data ')
-error = true
-}
+  if (cidade.value == '' || cidade.value == null) {
+    campos.push('Cidade ')
+    error = true
+  }
+  if (data.value == '' || data.value == null) {
+    campos.push('Data ')
+    error = true
+  }
 
-   if (biografia.value == '' || biografia.value == null) {
-  campos.push ('biografia ')
-  error = true
+  if (biografia.value == '' || biografia.value == null) {
+    campos.push('biografia ')
+    error = true
   }
 
 
@@ -146,20 +126,26 @@ function handleFileUpload(e) {
 </script>
 
 <template>
+
   <div class="formulario">
     <h1>Informe seus dados</h1>
 
     <input type="file" id="avatarField" @change="handleFileUpload($event)" />
     <img v-if="user.avatar" :src="user.avatar" />
-
-    <NomeComp />
-    <senhaComp />
-    <confirmacaoComp />
-    <emailComp />
-    <profissaoComp />
-    <salarioComp />
-<cpfComp />
-
+    <p>Informe seu nome</p>
+    <input type="string" v-model="nome" size="20" placeholder="Digite seu nome" />
+    <p>Informe seu email:</p>
+    <input type="string" v-model="email" size="20" placeholder="Digite seu email" />
+    <p>Informe sua profissao:</p>
+    <input type="string" v-model="profissao" size="20" placeholder="Digite sua profissa" />
+    <p>Informe sua senha:</p>
+    <input type="string" v-model="senha" size="20" placeholder="Digite sua senha" />
+    <p>Confirme sua senha:</p>
+    <input type="string" v-model="confirmacao" size="20" placeholder="Digite sua senha" />
+    <p>Informe seu salario:</p>
+    <input type="number" v-model="salario" size="20" placeholder="Digite seu salario" />
+    <p>Informe seu cpf:</p>
+    <input type="string" v-model="cpf" size="20" placeholder="Digite seu cpf" />
     <p>Informe sua idade:</p>
     <input type="number" v-model="idade" size="20" placeholder="Digite sua idade" />
     <p>Informe a Data</p>
@@ -220,8 +206,21 @@ function handleFileUpload(e) {
         Dados Salvos
         <div v-if="registrar" class="card-content">
           <div>Foto: <img :src="user.avatar" /></div>
-        
-         
+
+          <div>Nome: {{ nome }}</div>
+          <hr />
+          <div>Email: {{ email }}</div>
+          <hr />
+          <div>Profissao: {{ profissao }}</div>
+          <hr />
+          <div>Senha: {{ senha }}</div>
+          <hr />
+          <div>Senha: {{ confirmacao }}</div>
+          <hr />
+          <div>Salario: {{ salario }}</div>
+          <hr />
+          <div>CPF: {{ cpf }}</div>
+          <hr />
           <div>Idade: {{ idade }}</div>
           <hr />
           <div>Data: {{ data }}</div>
@@ -233,13 +232,16 @@ function handleFileUpload(e) {
           <div>Biografia: {{ biografia }}</div>
           <hr />
           <div>Linguagem: {{ linguagens }}</div>
-          <button @click="deletar(apagado)">Deletar</button>
-          <button @click="edit(editar)">Editar</button>
+          <button @click="deletar(apagado)">delet</button>
         </div>
       </div>
     </div>
   </div>
+
+
+
 </template>
+
 
 <style scoped>
 .formulario {
@@ -272,7 +274,6 @@ h1 {
   justify-content: flex-end;
   margin-top: 20px;
 }
-
 .card {
   flex: 0 0 300px;
   background-color: rgba(100, 88, 146, 0.514) ;
